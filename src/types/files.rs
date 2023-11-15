@@ -2,6 +2,7 @@ use std::fmt;
 
 use serde::de::{Deserializer, IgnoredAny, MapAccess, Visitor};
 use serde::Deserialize;
+use serde::Serialize;
 use url::Url;
 
 use crate::types::{DeserializeField, MissingField, TargetPlatform};
@@ -9,7 +10,7 @@ use crate::types::{DeserializeField, MissingField, TargetPlatform};
 use super::id::{FileId, ModId};
 
 /// See the [Modfile Object](https://docs.mod.io/#modfile-object) docs for more information.
-#[derive(Debug)]
+#[derive(Clone, Serialize, Debug)]
 #[non_exhaustive]
 pub struct File {
     pub id: FileId,
