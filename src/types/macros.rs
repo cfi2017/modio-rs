@@ -70,7 +70,7 @@ macro_rules! newtype_enum {
         $($t:tt)*
     ) => {
         $(#[$outer])*
-        #[derive(Clone, Copy, Eq, Hash, PartialEq, Deserialize)]
+        #[derive(Clone, Copy, Eq, Hash, PartialEq, Deserialize, Serialize)]
         $vis struct $NewtypeEnum($T);
 
         impl $NewtypeEnum {
