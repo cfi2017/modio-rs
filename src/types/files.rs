@@ -228,7 +228,7 @@ impl fmt::Debug for Download {
 
 /// See the [Modfile Platform Object](https://docs.mod.io/#modfile-platform-object) docs for more
 /// information.
-#[derive(Debug, Deserialize)]
+#[derive(Debug, Deserialize, Clone)]
 #[non_exhaustive]
 pub struct Platform {
     #[serde(rename = "platform")]
