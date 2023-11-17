@@ -175,7 +175,7 @@ impl<'de> Deserialize<'de> for File {
 }
 
 /// See the [Modfile Object](https://docs.mod.io/#modfile-object) docs for more information.
-#[derive(Debug, Clone)]
+#[derive(Debug, Clone, Serialize)]
 #[non_exhaustive]
 pub struct VirusScan {
     pub date_scanned: u64,
@@ -203,14 +203,14 @@ newtype_enum! {
 }
 
 /// See the [Filehash Object](https://docs.mod.io/#filehash-object) docs for more information.
-#[derive(Debug, Deserialize, Clone)]
+#[derive(Debug, Deserialize, Serialize, Clone)]
 #[non_exhaustive]
 pub struct FileHash {
     pub md5: String,
 }
 
 /// See the [Download Object](https://docs.mod.io/#download-object) docs for more information.
-#[derive(Deserialize, Clone)]
+#[derive(Deserialize, Serialize, Clone)]
 #[non_exhaustive]
 pub struct Download {
     pub binary_url: Url,
@@ -228,7 +228,7 @@ impl fmt::Debug for Download {
 
 /// See the [Modfile Platform Object](https://docs.mod.io/#modfile-platform-object) docs for more
 /// information.
-#[derive(Debug, Deserialize, Clone)]
+#[derive(Debug, Deserialize, Serialize, Clone)]
 #[non_exhaustive]
 pub struct Platform {
     #[serde(rename = "platform")]
